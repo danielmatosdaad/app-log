@@ -12,7 +12,7 @@ import br.app.barramento.integracao.dao.interfaces.Entidade;
 
 @Entity
 @XmlRootElement
-@Table(name = "repositorio")
+@Table(name = "log")
 public class Log implements Entidade, Serializable {
 
 	/**

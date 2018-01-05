@@ -8,6 +8,7 @@ import javax.ejb.Local;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
+import br.app.barramento.infra.persistencia.dao.IFacedeDAO;
 import br.app.barramento.infra.persistencia.service.ServiceDAO;
 import br.app.barramento.integracao.dao.interfaces.IServicoLocalDAO;
 import br.app.barramento.integracao.dao.interfaces.IServicoRemoteDAO;
@@ -20,7 +21,6 @@ import br.app.log.servico.integracao.IServicoLogRemote;
 import br.app.log.servico.integracao.LogDTO;
 
 @Stateless
-@Asynchronous
 @Remote(value = { IServicoLogRemote.class, IServicoRemoteDAO.class })
 @Local(value = { IServicoLogLocal.class, IServicoLocalDAO.class })
 public class LogServicoImp
@@ -70,7 +70,7 @@ public class LogServicoImp
 	public LogDTO alterar(LogDTO dto) throws InfraEstruturaException, NegocioException {
 		try {
 
-			ServiceDAO.alterar(this.getLogFacade(), Log.class, dto);
+			ServiceDAO.alterar(getLogFacade(), Log.class, dto);
 			return dto;
 
 		} catch (Exception e) {
@@ -81,7 +81,7 @@ public class LogServicoImp
 	@Override
 	public void remover(LogDTO dto) throws InfraEstruturaException, NegocioException {
 		try {
-			ServiceDAO.remover(this.getLogFacade(), Log.class, dto);
+			ServiceDAO.remover(getLogFacade(), Log.class, dto);
 
 		} catch (Exception e) {
 			throw new InfraEstruturaException(e);
@@ -117,18 +117,22 @@ public class LogServicoImp
 	public List<LogDTO> bustarPorIntervaloID(int[] range) throws InfraEstruturaException, NegocioException {
 		try {
 
-			return ServiceDAO.bustarPorIntervaloID(this.getLogFacade(), LogDTO.class, range);
+			return ServiceDAO.bustarPorIntervaloID(getLogFacade(), LogDTO.class, range);
 		} catch (Exception e) {
 			throw new InfraEstruturaException(e);
 		}
 	}
 
-	public LogFacede getLogFacade() {
+	public IFacedeDAO getLogFacade() {
 		return logFacade;
 	}
 
-	public void setLogFacade(LogFacede logFacade) {
-		this.logFacade = logFacade;
+
+	@Asynchronous
+	@Override
+	public void registrarLog(LogDTO log) throws InfraEstruturaException, NegocioException {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

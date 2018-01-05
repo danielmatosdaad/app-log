@@ -34,9 +34,9 @@
         <module>app-log-servico-ejb</module>
         <module>app-log-servico-ear</module>
         <module>app-log-servico-api</module>
-        <module>app-log-servico-infra-api</module>
-        <module>app-log-integracao</module>
         <module>app-log-servico-integracao</module>
+        <module>app-log-servico-web</module>
+
   </modules>
 
     <properties>
@@ -72,12 +72,6 @@
 
             <!-- Define the version of the EJB jar so that we don't need 
                 to repeat ourselves in every module -->
-            <dependency>
-                <groupId>br.com.app.smart.business</groupId>
-                <artifactId>app-repositorio-servico-ejb</artifactId>
-                <version>${project.version}</version>
-                <type>ejb</type>
-            </dependency>
             
 
             <!-- JBoss distributes a complete set of Java EE 7 APIs including

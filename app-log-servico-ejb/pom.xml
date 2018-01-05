@@ -40,7 +40,6 @@
 			<artifactId>wildfly-ejb-client-bom</artifactId>
 			<version>8.2.0.Final</version>
 			<type>pom</type>
-			<scope>import</scope>
 		</dependency>
 		<!-- Declare the APIs we depend on and need for compilation. All of them 
 			are provided by JBoss WildFly -->
@@ -115,10 +114,9 @@
 		<dependency>
 			<groupId>br.com.app.smart.business</groupId>
 			<artifactId>
-				app-barramento-integracao-interfaces
+				app-barramento-integracao
 			</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>br.com.app.smart.business</groupId>

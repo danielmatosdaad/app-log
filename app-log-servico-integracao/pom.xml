@@ -7,9 +7,7 @@
     <artifactId>app-log-servico</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>br.com.app.smart.business</groupId>
   <artifactId>app-log-servico-integracao</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <name>app-log-servico-integracao</name>
   <url>http://maven.apache.org</url>
   <properties>
@@ -19,12 +17,11 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
     	<groupId>br.com.app.smart.business</groupId>
-    	<artifactId>app-barramento-integracao-interfaces</artifactId>
+    	<artifactId>app-barramento-integracao</artifactId>
     	<version>0.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
